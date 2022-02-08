@@ -496,6 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1102088876}
+  - component: {fileID: 1102088877}
   m_Layer: 0
   m_Name: SanityManager
   m_TagString: Untagged
@@ -518,6 +519,20 @@ Transform:
   m_Father: {fileID: 856471803}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102088877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102088875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a1e91bfecf94541891c46139e12387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityMeter: 70
+  dangerZone: {fileID: 1403428891}
 --- !u!1 &1118595863
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +900,7 @@ GameObject:
   - component: {fileID: 2047853834}
   - component: {fileID: 2047853833}
   - component: {fileID: 2047853832}
+  - component: {fileID: 2047853835}
   - component: {fileID: 2047853836}
   m_Layer: 0
   m_Name: Candels1
@@ -980,6 +996,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047853835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047853831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64a4a051e2b1ce49a93b612763308fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sm: {fileID: 1102088877}
 --- !u!61 &2047853836
 BoxCollider2D:
   m_ObjectHideFlags: 0

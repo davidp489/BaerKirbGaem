@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    private const float speed = 5;
+    public float speed;
     private Rigidbody2D rb;
 
-    private Vector2 moveDir;
+    Vector2 moveDir;
     // Start is called before the first frame update
     void Start()
     {
