@@ -25,7 +25,7 @@ public class SanityManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) // When entering light/safe zone, sanity meter goes up
     {
-        if(collider.gameObject.CompareTag("light")) //Checks if the player entered the light area
+        if(collider.gameObject.CompareTag("Light")) //Checks if the player entered the light area
         {
             while(sanityMeter != 100)
             {
