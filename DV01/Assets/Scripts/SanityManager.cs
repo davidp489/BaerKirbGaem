@@ -16,7 +16,7 @@ public class SanityManager : MonoBehaviour
     {
         while(sanityMeter != 0)
         {
-            StartCoroutine("sanityDown()");
+            StartCoroutine(sanityDown());
         }
     }
 
@@ -26,7 +26,7 @@ public class SanityManager : MonoBehaviour
         {
             while(sanityMeter != 100)
             {
-                StartCoroutine("sanityUp()");
+                StartCoroutine(sanityUp());
             }
         }
     }
@@ -34,12 +34,14 @@ public class SanityManager : MonoBehaviour
     IEnumerator sanityUp()
     {
         sanityMeter++;
+        Debug.Log("Scheise");
         yield return new WaitForSeconds(4);
     }
 
     IEnumerator sanityDown()
     {
         sanityMeter--;
+        Debug.Log("DoppeltScheise");
         yield return new WaitForSeconds(4);
     }
 }
