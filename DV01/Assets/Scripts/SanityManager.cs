@@ -1,50 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class SanityManager : MonoBehaviour
 {
     public int sanityMeter;
+    public bool isLight;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        sanityMeter = 75;
+        sanityMeter = 80;
+        StartCoroutine(sanity());
     }
 
     private void OnTriggerExit2D(Collider2D collider) // When entering dark/danger zone, sanity meter goes down
     {
-        if (collider.gameObject.CompareTag("Light"))
-        {
-            while (sanityMeter != 0)
-            {
-                StartCoroutine(sanityDown());
-            }
-        }
+        isLight = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collider) // When entering light/safe zone, sanity meter goes up
     {
         if(collider.gameObject.CompareTag("Light")) //Checks if the player entered the light area
         {
-            while(sanityMeter != 100)
-            {
-                StartCoroutine(sanityUp());
-            }
+            isLight = true;
         }
     }
 
-    IEnumerator sanityUp()
+    IEnumerator sanity()
     {
-        sanityMeter ++;
-        yield return new WaitForSeconds(4);
-        Debug.Log("Scheise");
+        while(true)
+        {
+            if(isLight)
+            {
+                sanityMeter++;
+            }
+            else
+            {
+                sanityMeter--;
+            }
+            yield return new WaitForSeconds(4);
+        }
     }
 
-    IEnumerator sanityDown()
-    {
-        sanityMeter --;
-        Debug.Log("DoppeltScheise");
-        yield return new WaitForSeconds(4);
-    }
+    
 }
