@@ -35,11 +35,17 @@ public class SanityManager : MonoBehaviour
         {
             if(isLight)
             {
-                sanityMeter++;
+                if(sanityMeter < 100)
+                {
+                    sanityMeter++;
+                }
             }
             else
             {
-                sanityMeter--;
+                if(sanityMeter > 0)
+                {
+                    sanityMeter--;
+                }
             }
             yield return new WaitForSeconds(4);
         }
