@@ -14,9 +14,12 @@ public class SanityManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider) // When entering dark/danger zone, sanity meter goes down
     {
-        while(sanityMeter != 0)
+        if (collider.gameObject.CompareTag("Light"))
         {
-            StartCoroutine(sanityDown());
+            while (sanityMeter != 0)
+            {
+                StartCoroutine(sanityDown());
+            }
         }
     }
 
@@ -33,14 +36,14 @@ public class SanityManager : MonoBehaviour
 
     IEnumerator sanityUp()
     {
-        sanityMeter++;
-        Debug.Log("Scheise");
+        sanityMeter ++;
         yield return new WaitForSeconds(4);
+        Debug.Log("Scheise");
     }
 
     IEnumerator sanityDown()
     {
-        sanityMeter--;
+        sanityMeter --;
         Debug.Log("DoppeltScheise");
         yield return new WaitForSeconds(4);
     }
