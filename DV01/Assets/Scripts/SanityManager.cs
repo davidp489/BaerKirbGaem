@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 public class SanityManager : MonoBehaviour
 {
     public int sanityMeter;
-    public bool isLight;
+    private bool isLight;
     
 
     // Start is called before the first frame update

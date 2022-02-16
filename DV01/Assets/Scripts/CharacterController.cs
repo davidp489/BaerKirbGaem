@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public float speed;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
-    Vector2 moveDir;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public float moveSpeed = 5f;
+    public Animator an;
+
+    Vector2 movment;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        moveDir.x = Input.GetAxisRaw("Horizontal");
-        moveDir.y = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(rb.position + moveDir * speed * Time.fixedDeltaTime);
+        movment.x = Input.GetAxisRaw("Horizontal");
+        movment.y = Input.GetAxisRaw("Vertical");
+
+        an.SetFloat("Horizontal", movment.x);
+        an.SetFloat("Vertical", movment.y);
+        an.SetFloat("Speed", movment.sqrMagnitude);
     }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movment * moveSpeed * Time.fixedDeltaTime);
+    }
+
+
 }
